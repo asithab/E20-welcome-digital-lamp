@@ -33,6 +33,10 @@ function initMap() {
         placeMarkerAndPanTo(new google.maps.LatLng("28.6527881", "77.2113932"), map);
     })
 
+    $("#nepal").click(function () {
+        map.setZoom(5);
+        placeMarkerAndPanTo(new google.maps.LatLng("27.649505", "85.405770"), map);
+    })
 
 
 }
