@@ -16,35 +16,22 @@ function initMap() {
 
     // jquery on button click
     $("#student").click(function () {
+        map.panTo(new google.maps.LatLng('7.8731', '80.7718'))
+        map.setZoom(8);
         // iterate over stud 
         for (var i = 0; i < stud.length; i++) {
-            var name = stud[i].Name;
+            // var name = stud[i].Name;
             var lat = stud[i].Latitude;
             var lon = stud[i].Longitude;
-            setTimeout(placeMarker, i * 1000, new google.maps.LatLng(lat, lon), map)
+            setTimeout(placeMarker, i * 500, new google.maps.LatLng(lat, lon), map)
 
         }
     })
 
-    var x = 0;
-
-    var markers = [
-        [8.8731, 80.7718],
-        [7.8731, 80.7718],
-        [9.8731, 76.7718],
-        [9.8731, -61.7718],
-        [-10.8731, -40.7718]
-    ];
-
-    map.addListener("click", (e) => {
-        // if x is less markers length
-        if (x < markers.length) {
-            placeMarkerAndPanTo(new google.maps.LatLng(markers[x][0], markers[x][1]), map);
-            x++;
-
-        }
-    });
-
+    $("#india").click(function () {
+        map.setZoom(5);
+        placeMarkerAndPanTo(new google.maps.LatLng("28.6527881", "77.2113932"), map);
+    })
 
 
 
@@ -59,7 +46,6 @@ function placeMarker(latLng, map) {
         anchor: new google.maps.Point(20, 40) // anchor
     };
 
-    map.panTo(latLng);
 
     new google.maps.Marker({
         position: latLng,
@@ -68,7 +54,7 @@ function placeMarker(latLng, map) {
     });
 }
 
-function placeMarkerAndPanTo(latLng, name, map) {
+function placeMarkerAndPanTo(latLng, map) {
     var icon = {
         url: "img/oil-lamp.png", // url
         scaledSize: new google.maps.Size(40, 40), // scaled size
@@ -77,7 +63,6 @@ function placeMarkerAndPanTo(latLng, name, map) {
     };
 
     map.panTo(latLng);
-
     new google.maps.Marker({
         position: latLng,
         map: map,

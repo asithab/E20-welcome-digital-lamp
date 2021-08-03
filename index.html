@@ -20,12 +20,17 @@
     <!-- page with two columns -->
     <div class="container-fluid h-100 w-100">
         <div class="row h-100 w-100">
-            <div class="col">
+            <div id="mapcol" class="col">
                 <div id="map"></div>
             </div>
-            <div class="col-auto d-flex flex-column">
+            <div class="col col-auto flex-column d-flex justify-content-around">
+                <!-- <div class="d-flex btn-group-vertical" role="group"> -->
+                <button id="india" type="button" class="btn btn-primary">India</button>
+                <button id="nepal" type="button" class="btn btn-primary ">Nepal</button>
                 <button id="student" type="button" class="btn btn-primary">Students</button>
+                <!-- </div> -->
             </div>
+
         </div>
         <script
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDEjeVJ71yuM9JH1dv0Lj9prkW9sfWEDO4&callback=initMap&libraries=&v=weekly&channel=2"
