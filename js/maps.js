@@ -1,15 +1,30 @@
+let map
 function initMap() {
-    const map = new google.maps.Map(document.getElementById("map"), {
-        zoom: 6,
+    map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 8,
         center: { lat: 7.8731, lng: 80.7718 },
-        disableDefaultUI: true,
-        scrollwheel: false,
 
+        mapId: "e73be1757f1fdda8"
     });
 
-    var x = 0;
+    var stud;
+    $.getJSON("stu.json", function (json) {
+        stud = json; // this will show the info it in firebug console
+    })
 
-    // create array of tuples
+    // jquery on button click
+    $("#student").click(function () {
+        // iterate over stud 
+        for (var i = 0; i < stud.length; i++) {
+            var name = stud[i].Name;
+            var lat = stud[i].Latitude;
+            var lon = stud[i].Longitude;
+            setTimeout(placeMarkerAndPanTo, i * 1000, new google.maps.LatLng(lat, lon), name, map)
+
+        }
+    })
+
+    var x = 0;
 
     var markers = [
         [8.8731, 80.7718],
@@ -24,14 +39,29 @@ function initMap() {
         if (x < markers.length) {
             placeMarkerAndPanTo(new google.maps.LatLng(markers[x][0], markers[x][1]), map);
             x++;
+
         }
     });
+
+
+
+
 }
 
-function placeMarkerAndPanTo(latLng, map) {
+
+function placeMarkerAndPanTo(latLng, name, map) {
+    var icon = {
+        url: "img/oil-lamp.png", // url
+        scaledSize: new google.maps.Size(40, 40), // scaled size
+        origin: new google.maps.Point(0, 0), // origin
+        anchor: new google.maps.Point(20, 40) // anchor
+    };
+
+    map.panTo(latLng);
+
     new google.maps.Marker({
         position: latLng,
         map: map,
+        icon: icon,
     });
-    map.panTo(latLng);
 }
