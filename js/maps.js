@@ -13,8 +13,8 @@ function initMap() {
     map.fitBounds(slbounds);
 
     var perabounds = new google.maps.LatLngBounds();
-    perabounds.extend(new google.maps.LatLng(7.271635897056729, 80.61025352366207));
-    perabounds.extend(new google.maps.LatLng(7.250887, 80.588064));
+    perabounds.extend(new google.maps.LatLng(7.270087123946833, 80.608981946666));
+    perabounds.extend(new google.maps.LatLng(7.251604257035574, 80.58989448263566));
 
     var stud;
     $.getJSON("stu.json", function (json) {
@@ -39,6 +39,30 @@ function initMap() {
         $(this).prop('disabled', true);
         map.fitBounds(perabounds);
         placeMarker(new google.maps.LatLng(7.254017744015974, 80.59674509791466), map);
+    })
+
+    $("#ar").click(function () {
+        $(this).prop('disabled', true);
+        map.fitBounds(perabounds);
+        placeMarker(new google.maps.LatLng(7.263288799395109, 80.59717486015069), map);
+    })
+
+    $("#ab").click(function () {
+        $(this).prop('disabled', true);
+        map.fitBounds(perabounds);
+        placeMarker(new google.maps.LatLng(7.2623481038585735, 80.59876801096193), map);
+    })
+
+    $("#co").click(function () {
+        $(this).prop('disabled', true);
+        map.fitBounds(perabounds);
+        placeMarker(new google.maps.LatLng(7.263750656694353, 80.59690434620175), map);
+    })
+
+    $("#agdean").click(function () {
+        $(this).prop('disabled', true);
+        map.fitBounds(perabounds);
+        placeMarker(new google.maps.LatLng(7.262360, 80.598332), map);
     })
 
     $("#deans").click(function () {
