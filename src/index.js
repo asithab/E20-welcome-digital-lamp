@@ -22,17 +22,14 @@ import lamp from './oil-lamp.png';
 
 let map;
 
-const cameraOptions = {
+let cameraOptions = {
   tilt: 0,
   heading: 0,
-  zoom: 3,
-  center: { lat: 35.6594945, lng: 139.6999859 },
+  zoom: 2,
+  center: { lat: 7.254017744015974, lng: 80.59674509791466 },
 };
-
 const mapOptions = {
   ...cameraOptions,
-  zoom: 8,
-  center: { lat: 7.8731, lng: 80.7718 },
   disableDefaultUI: true,
   draggable: false,
   mapId: "e73be1757f1fdda8",
@@ -44,79 +41,32 @@ function initMap() {
     mapOptions
   );
 
-  // install Tweenjs with npm i @tweenjs/tween.js
-  new Tween(cameraOptions) // Create a new tween that modifies 'cameraOptions'.
-    .to({ tilt: 65, heading: 90, zoom: 18 }, 15000) // Move to destination in 15 second.
-    .easing(Easing.Quadratic.Out) // Use an easing function to make the animation smooth.
-    .onUpdate(() => {
-      map.moveCamera(cameraOptions);
-    })
-    .start(); // Start the tween immediately.
-
-  // Setup the animation loop.
-  function animate(time) {
-    requestAnimationFrame(animate);
-    update(time);
-  }
-  requestAnimationFrame(animate);
-
   var slbounds = new google.maps.LatLngBounds();
   slbounds.extend(new google.maps.LatLng(9.953036, 82.268190));
   slbounds.extend(new google.maps.LatLng(5.790138, 78.785327));
-  map.fitBounds(slbounds);
+  // map.fitBounds(slbounds);
 
   var perabounds = new google.maps.LatLngBounds();
   perabounds.extend(new google.maps.LatLng(7.270087123946833, 80.608981946666));
   perabounds.extend(new google.maps.LatLng(7.251604257035574, 80.58989448263566));
 
 
-  // jquery on button click
-  $("#student").click(function () {
-    $(this).prop('disabled', true);
-    map.fitBounds(slbounds);
-    // iterate over stud 
-    for (var i = 0; i < stud.length; i++) {
-      // var name = stud[i].Name;
-      var lat = stud[i].Latitude;
-      var lon = stud[i].Longitude;
-      setTimeout(placeMarker, i * 500, new google.maps.LatLng(lat, lon), map)
-
-    }
-  })
-
   $("#vc").click(function () {
     $(this).prop('disabled', true);
-    map.fitBounds(perabounds);
-    placeMarker(new google.maps.LatLng(7.254017744015974, 80.59674509791466), map);
-  })
-
-  $("#ar").click(function () {
-    $(this).prop('disabled', true);
-    map.fitBounds(perabounds);
-    placeMarker(new google.maps.LatLng(7.263288799395109, 80.59717486015069), map);
-  })
-
-  $("#ab").click(function () {
-    $(this).prop('disabled', true);
-    map.fitBounds(perabounds);
-    placeMarker(new google.maps.LatLng(7.2623481038585735, 80.59876801096193), map);
-  })
-
-  $("#co").click(function () {
-    $(this).prop('disabled', true);
-    map.fitBounds(perabounds);
-    placeMarker(new google.maps.LatLng(7.263750656694353, 80.59690434620175), map);
+    tween({ lat: 7.254017744015974, lng: 80.59674509791466 }, 16, 5)
   })
 
   $("#agdean").click(function () {
     $(this).prop('disabled', true);
-    map.fitBounds(perabounds);
-    placeMarker(new google.maps.LatLng(7.262360, 80.598332), map);
+    // map.fitBounds(perabounds);
+    // placeMarker(new google.maps.LatLng(7.262360, 80.598332), map);
+    tween({ lat: 7.262360, lng: 80.598332 }, 16, 2)
+
   })
 
   $("#deans").click(function () {
     $(this).prop('disabled', true);
-    map.fitBounds(perabounds);
+    // map.fitBounds(perabounds);
     placeMarker(new google.maps.LatLng(7.262360, 80.598332), map);
     placeMarker(new google.maps.LatLng(7.2640113257763295, 80.59897901185354), map);
     placeMarker(new google.maps.LatLng(7.259764416540214, 80.5991103385456), map);
@@ -130,7 +80,7 @@ function initMap() {
 
   $("#dh").click(function () {
     $(this).prop('disabled', true);
-    map.fitBounds(perabounds);
+    // map.fitBounds(perabounds);
     placeMarker(new google.maps.LatLng(7.2643327275129, 80.59680694773525), map);
     placeMarker(new google.maps.LatLng(7.26388573308274, 80.59561604697777), map);
     placeMarker(new google.maps.LatLng(7.262480890551459, 80.59553021629253), map);
@@ -141,23 +91,63 @@ function initMap() {
     placeMarker(new google.maps.LatLng(7.260437475397385, 80.59650654033697), map);
   })
 
+  $("#ar").click(function () {
+    $(this).prop('disabled', true);
+    // map.fitBounds(perabounds);
+    placeMarker(new google.maps.LatLng(7.263288799395109, 80.59717486015069), map);
+    // tween({ lat: 7.263288799395109, lng: 80.59717486015069 }, 16, 2)
+
+  })
+
+  $("#ab").click(function () {
+    $(this).prop('disabled', true);
+    // map.fitBounds(perabounds);
+    placeMarker(new google.maps.LatLng(7.2623481038585735, 80.59876801096193), map);
+    // tween({ lat: 7.2623481038585735, lng: 80.59876801096193 }, 16, 2)
+
+  })
+
+  $("#co").click(function () {
+    $(this).prop('disabled', true);
+    // map.fitBounds(perabounds);
+    placeMarker(new google.maps.LatLng(7.263750656694353, 80.59690434620175), map);
+  })
+
 
   $("#india").click(function () {
     $(this).prop('disabled', true);
-    map.setZoom(5);
-    placeMarkerAndPanTo(new google.maps.LatLng("28.6527881", "77.2113932"), map);
+    // map.setZoom(5);
+    // placeMarkerAndPanTo(new google.maps.LatLng("28.6527881", "77.2113932"), map);
+    tween({ lat: 28.6527881, lng: 77.2113932 }, 5, 5)
+
   })
 
   $("#nepal").click(function () {
     $(this).prop('disabled', true);
     // map.setZoom(5);
     // placeMarkerAndPanTo(new google.maps.LatLng("27.649505", "85.405770"), map);
-    map.moveCamera({
-      center: new google.maps.LatLng("27.649505", "85.405770"),
-      zoom: 5
-    });
-    placeMarkerAndPanTo(new google.maps.LatLng("27.649505", "85.405770"), map);
+    // map.moveCamera({
+    //   center: new google.maps.LatLng("27.649505", "85.405770"),
+    //   zoom: 5
+    // });
+    // placeMarkerAndPanTo(new google.maps.LatLng("27.649505", "85.405770"), map);
+    tween({ lat: 27.649505, lng: 85.405770 }, 5, 3)
+  })
 
+  $("#student").click(function () {
+    $(this).prop('disabled', true);
+
+    // map.fitBounds(slbounds);
+    tween({ lat: 7.8731, lng: 80.7718 }, 8, 3, false)
+
+    // iterate over stud 
+    for (var i = 0; i < stud.length; i++) {
+      // var name = stud[i].Name;
+      var lat = stud[i].Latitude;
+      var lon = stud[i].Longitude;
+      setTimeout(placeMarker, i * 500, new google.maps.LatLng(lat, lon), map)
+
+    }
   })
 }
 function placeMarker(latLng, map) {
@@ -190,6 +180,34 @@ function placeMarkerAndPanTo(latLng, map) {
     map: map,
     icon: icon,
   });
+}
+
+function tween(loc, zooml, ts = 5, lamp = true, tiltn = 0) {
+
+  function animate(time) {
+    requestAnimationFrame(animate);
+    update(time);
+  }
+  requestAnimationFrame(animate);
+
+  new Tween(cameraOptions) // Create a new tween that modifies 'cameraOptions'.
+    .to({ center: loc, tilt: tiltn, heading: 0, zoom: zooml }, ts * 1000) // Move to destination in 15 second.
+    .easing(Easing.Quadratic.Out) // Use an easing function to make the animation smooth.
+    .onUpdate(() => {
+      map.moveCamera(cameraOptions)
+    })
+    .onComplete(() => {
+      cameraOptions = {
+        ...cameraOptions,
+        center: loc
+      };
+    })
+    .start(); // Start the tween immediately.
+
+  // Setup the animation loop.
+  if (lamp) {
+    setTimeout(placeMarker, (ts - 1) * 1000, loc, map);
+  }
 }
 
 export { initMap };
