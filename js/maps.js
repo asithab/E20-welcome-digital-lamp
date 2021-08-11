@@ -6,6 +6,13 @@ function initMap() {
         draggable: false,
         mapId: "e73be1757f1fdda8"
     });
+    const cameraOptions = {
+        tilt: 0,
+        heading: 0,
+        zoom: 3,
+        center: { lat: 35.6594945, lng: 139.6999859 },
+    };
+    createjs.Tween(cameraOptions)
 
     var slbounds = new google.maps.LatLngBounds();
     slbounds.extend(new google.maps.LatLng(9.953036, 82.268190));
@@ -101,8 +108,14 @@ function initMap() {
 
     $("#nepal").click(function () {
         $(this).prop('disabled', true);
-        map.setZoom(5);
+        // map.setZoom(5);
+        // placeMarkerAndPanTo(new google.maps.LatLng("27.649505", "85.405770"), map);
+        map.moveCamera({
+            center: new google.maps.LatLng("27.649505", "85.405770"),
+            zoom: 5
+        });
         placeMarkerAndPanTo(new google.maps.LatLng("27.649505", "85.405770"), map);
+
     })
 
 
