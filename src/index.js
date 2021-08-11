@@ -18,7 +18,7 @@ import "./styles.css";
 import $ from 'jquery';
 import { Tween, update, Easing } from "@tweenjs/tween.js";
 import stud from "./stu.json";
-import lamppng from './oil-lamp.png';
+import lamppng from './flame.gif';
 
 let map;
 
