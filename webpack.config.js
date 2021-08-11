@@ -26,15 +26,8 @@ module.exports = (env) => {
     module: {
       rules: [
         {
-          test: /\.(png|jpe?g|gif)$/i,
-          use: [
-            {
-              loader: 'file-loader',
-              options: {
-                name: '[name].[ext]'
-              }
-            },
-          ],
+          test: /\.(png|svg|jpg|jpeg|gif)$/i,
+          type: 'asset/resource',
         },
         {
           test: /\.(ts|js)$/,
