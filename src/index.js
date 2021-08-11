@@ -99,7 +99,7 @@ function initMap() {
 
   })
 
-  $("#ab").click(function () {
+  $("#ab").on("click", function () {
     $(this).prop('disabled', true);
     // map.fitBounds(perabounds);
     placeMarker(new google.maps.LatLng(7.2623481038585735, 80.59876801096193), map);
@@ -107,14 +107,14 @@ function initMap() {
 
   })
 
-  $("#co").click(function () {
+  $("#co").on("click", function () {
     $(this).prop('disabled', true);
     // map.fitBounds(perabounds);
     placeMarker(new google.maps.LatLng(7.263750656694353, 80.59690434620175), map);
   })
 
 
-  $("#india").click(function () {
+  $("#india").on("click", function () {
     $(this).prop('disabled', true);
     // map.setZoom(5);
     // placeMarkerAndPanTo(new google.maps.LatLng("28.6527881", "77.2113932"), map);
@@ -122,7 +122,7 @@ function initMap() {
 
   })
 
-  $("#nepal").click(function () {
+  $("#nepal").on("click", function () {
     $(this).prop('disabled', true);
     // map.setZoom(5);
     // placeMarkerAndPanTo(new google.maps.LatLng("27.649505", "85.405770"), map);
@@ -134,11 +134,11 @@ function initMap() {
     tween({ lat: 27.649505, lng: 85.405770 }, 5, 3)
   })
 
-  $("#student").click(function () {
+  $("#student").on("click", function () {
     $(this).prop('disabled', true);
 
-    // map.fitBounds(slbounds);
     tween({ lat: 7.8731, lng: 80.7718 }, 8, 3, false)
+    map.fitBounds(slbounds);
 
     // iterate over stud 
     for (var i = 0; i < stud.length; i++) {
