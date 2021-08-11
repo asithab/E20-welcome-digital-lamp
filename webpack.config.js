@@ -30,6 +30,9 @@ module.exports = (env) => {
           use: [
             {
               loader: 'file-loader',
+              options: {
+                name: '[name].[ext]'
+              }
             },
           ],
         },
