@@ -18,7 +18,7 @@ import "./styles.css";
 import $ from 'jquery';
 import { Tween, update, Easing } from "@tweenjs/tween.js";
 import stud from "./stu.json";
-import lamp from './oil-lamp.png';
+import lamppng from './oil-lamp.png';
 
 let map;
 
@@ -152,7 +152,7 @@ function initMap() {
 }
 function placeMarker(latLng, map) {
   var icon = {
-    url: lamp, // url
+    url: lamppng, // url
     scaledSize: new google.maps.Size(40, 40), // scaled size
     origin: new google.maps.Point(0, 0), // origin
     anchor: new google.maps.Point(20, 40) // anchor
@@ -168,7 +168,7 @@ function placeMarker(latLng, map) {
 
 function placeMarkerAndPanTo(latLng, map) {
   var icon = {
-    url: lamp, // url
+    url: lamppng, // url
     scaledSize: new google.maps.Size(40, 40), // scaled size
     origin: new google.maps.Point(0, 0), // origin
     anchor: new google.maps.Point(20, 40) // anchor
