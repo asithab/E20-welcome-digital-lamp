@@ -51,12 +51,12 @@ function initMap() {
   perabounds.extend(new google.maps.LatLng(7.251604257035574, 80.58989448263566));
 
 
-  $("#vc").click(function () {
+  $("#vc").on('click', function () {
     $(this).prop('disabled', true);
-    tween({ lat: 7.254017744015974, lng: 80.59674509791466 }, 16, 5)
+    tween({ lat: 7.254017744015974, lng: 80.59674509791466 }, 16, 6)
   })
 
-  $("#agdean").click(function () {
+  $("#agdean").on('click', function () {
     $(this).prop('disabled', true);
     // map.fitBounds(perabounds);
     // placeMarker(new google.maps.LatLng(7.262360, 80.598332), map);
@@ -64,7 +64,7 @@ function initMap() {
 
   })
 
-  $("#deans").click(function () {
+  $("#deans").on('click', function () {
     $(this).prop('disabled', true);
     // map.fitBounds(perabounds);
     placeMarker(new google.maps.LatLng(7.262360, 80.598332), map);
@@ -78,7 +78,7 @@ function initMap() {
     placeMarker(new google.maps.LatLng(7.256974294284219, 80.59561192848471), map);
   })
 
-  $("#dh").click(function () {
+  $("#dh").on('click', function () {
     $(this).prop('disabled', true);
     // map.fitBounds(perabounds);
     placeMarker(new google.maps.LatLng(7.2643327275129, 80.59680694773525), map);
@@ -91,7 +91,7 @@ function initMap() {
     placeMarker(new google.maps.LatLng(7.260437475397385, 80.59650654033697), map);
   })
 
-  $("#ar").click(function () {
+  $("#ar").on('click', function () {
     $(this).prop('disabled', true);
     // map.fitBounds(perabounds);
     placeMarker(new google.maps.LatLng(7.263288799395109, 80.59717486015069), map);
@@ -118,7 +118,7 @@ function initMap() {
     $(this).prop('disabled', true);
     // map.setZoom(5);
     // placeMarkerAndPanTo(new google.maps.LatLng("28.6527881", "77.2113932"), map);
-    tween({ lat: 28.6527881, lng: 77.2113932 }, 5, 5)
+    tween({ lat: 28.6527881, lng: 77.2113932 }, 5, 6, true, Easing.Back.Out)
 
   })
 
@@ -182,7 +182,7 @@ function placeMarkerAndPanTo(latLng, map) {
   });
 }
 
-function tween(loc, zooml, ts = 5, lamp = true, tiltn = 0) {
+function tween(loc, zooml, ts = 5, lamp = true, easing = Easing.Quadratic.Out) {
 
   function animate(time) {
     requestAnimationFrame(animate);
@@ -191,8 +191,8 @@ function tween(loc, zooml, ts = 5, lamp = true, tiltn = 0) {
   requestAnimationFrame(animate);
 
   new Tween(cameraOptions) // Create a new tween that modifies 'cameraOptions'.
-    .to({ center: loc, tilt: tiltn, heading: 0, zoom: zooml }, ts * 1000) // Move to destination in 15 second.
-    .easing(Easing.Quadratic.Out) // Use an easing function to make the animation smooth.
+    .to({ center: loc, tilt: 0, heading: 0, zoom: zooml }, ts * 1000) // Move to destination in 15 second.
+    .easing(easing) // Use an easing function to make the animation smooth.
     .onUpdate(() => {
       map.moveCamera(cameraOptions)
     })
