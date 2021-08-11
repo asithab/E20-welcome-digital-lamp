@@ -22,9 +22,17 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = (env) => {
   return {
-    entry: ["./src/index.ts"],
+    entry: ["./src/index.js"],
     module: {
       rules: [
+        {
+          test: /\.(png|jpe?g|gif)$/i,
+          use: [
+            {
+              loader: 'file-loader',
+            },
+          ],
+        },
         {
           test: /\.(ts|js)$/,
           loader: "string-replace-loader",
@@ -42,11 +50,6 @@ module.exports = (env) => {
               presets: [["@babel/preset-env", { targets: "defaults" }]],
             },
           },
-        },
-        {
-          test: /\.ts$/i,
-          use: "ts-loader",
-          exclude: /node_modules/,
         },
         {
           test: /\.css$/i,
@@ -68,20 +71,20 @@ module.exports = (env) => {
       env.SKIP_HTML
         ? []
         : [
-            new HtmlWebpackPlugin({
-              template: "src/index.html",
-              inject: false,
-            }),
-            new HtmlReplaceWebpackPlugin([
-              {
-                pattern: /YOUR_API_KEY/g,
-                replacement: process.env.GOOGLE_MAPS_API_KEY,
-              },
-            ]),
-            new MiniCssExtractPlugin({
-              filename: "style.css",
-            }),
-          ]
+          new HtmlWebpackPlugin({
+            template: "src/index.html",
+            inject: false,
+          }),
+          new HtmlReplaceWebpackPlugin([
+            {
+              pattern: /YOUR_API_KEY/g,
+              replacement: process.env.GOOGLE_MAPS_API_KEY,
+            },
+          ]),
+          new MiniCssExtractPlugin({
+            filename: "styles.css",
+          }),
+        ]
     ),
     devServer: {
       liveReload: true,
@@ -92,6 +95,7 @@ module.exports = (env) => {
     externals: {
       // use cdn version of ThreeJS to avoid tree shaking complexity
       three: "THREE",
+      jquery: 'jQuery',
     },
   };
 };
