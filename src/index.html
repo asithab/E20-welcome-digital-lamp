@@ -10,9 +10,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- import styles.css -->
-    <link href="css/styles.css" rel="stylesheet" type="text/css" />
+    <link href="./styles.css" rel="stylesheet" type="text/css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="js/maps.js"></script>
+    <script src="https://code.createjs.com/1.0.0/tweenjs.min.js"></script>
+    <script src="./index.js"></script>
     <title>FAURS</title>
 </head>
 
@@ -33,16 +34,14 @@
                 <button id="ar" type="button" class="btn btn-outline-success">Assistant Registrar</button>
                 <button id="ab" type="button" class="btn btn-outline-success">Assistant Bursar</button>
                 <button id="co" type="button" class="btn btn-outline-success">Coordinator</button>
-                <button id="india" type="button" class="btn btn-outline-success">Chief Guest (India)</button>
-                <button id="nepal" type="button" class="btn btn-outline-success ">Chief Guest (Nepal)</button>
+                <button id="india" type="button" class="btn btn-outline-success">Invited Speaker (India)</button>
+                <button id="nepal" type="button" class="btn btn-outline-success ">Invited Speaker (Nepal)</button>
                 <button id="student" type="button" class="btn btn-outline-success">Students</button>
                 <!-- </div> -->
             </div>
 
         </div>
-        <script
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDEjeVJ71yuM9JH1dv0Lj9prkW9sfWEDO4&callback=initMap&libraries=&v=weekly&channel=2"
-            async></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&v=beta&callback=initMap" async></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
             crossorigin="anonymous"></script>
