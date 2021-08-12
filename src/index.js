@@ -18,7 +18,7 @@ import "./styles.css";
 import $ from 'jquery';
 import { Tween, update, Easing } from "@tweenjs/tween.js";
 import stud from "./stu.json";
-import lamppng from './oil-lamp.png';
+import lamppng from './flame.gif';
 
 let map;
 
@@ -95,7 +95,6 @@ function initMap() {
     $(this).prop('disabled', true);
     // map.fitBounds(perabounds);
     placeMarker(new google.maps.LatLng(7.263288799395109, 80.59717486015069), map);
-    // tween({ lat: 7.263288799395109, lng: 80.59717486015069 }, 16, 2)
 
   })
 
