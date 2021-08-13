@@ -138,7 +138,7 @@ function initMap() {
     $(this).prop('disabled', true);
 
     tween({ lat: 7.8731, lng: 80.7718 }, 7.7, 3, false)
-    map.fitBounds(slbounds);
+    // map.fitBounds(slbounds);
 
     // iterate over stud 
     for (var i = 0; i < stud.length; i++) {
