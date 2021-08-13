@@ -54,14 +54,14 @@ function initMap() {
 
   $("#vc").on('click', function () {
     $(this).prop('disabled', true);
-    tween({ lat: 7.254017744015974, lng: 80.59674509791466 }, 16, 6)
+    tween({ lat: 7.254017744015974, lng: 80.59674509791466 }, 15.6, 6)
   })
 
   $("#agdean").on('click', function () {
     $(this).prop('disabled', true);
     // map.fitBounds(perabounds);
     // placeMarker(new google.maps.LatLng(7.262360, 80.598332), map);
-    tween({ lat: 7.262360, lng: 80.598332 }, 16, 2)
+    tween({ lat: 7.262360, lng: 80.598332 }, 15.6, 2)
 
   })
 
@@ -138,7 +138,7 @@ function initMap() {
     $(this).prop('disabled', true);
 
     tween({ lat: 7.8731, lng: 80.7718 }, 7.7, 3, false)
-    map.fitBounds(slbounds);
+    // map.fitBounds(slbounds);
 
     // iterate over stud 
     for (var i = 0; i < stud.length; i++) {
