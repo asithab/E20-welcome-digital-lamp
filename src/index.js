@@ -33,6 +33,7 @@ const mapOptions = {
   disableDefaultUI: true,
   draggable: false,
   mapId: "e73be1757f1fdda8",
+  isFractionalZoomEnabled: true,
 };
 
 function initMap() {
@@ -136,7 +137,7 @@ function initMap() {
   $("#student").on("click", function () {
     $(this).prop('disabled', true);
 
-    tween({ lat: 7.8731, lng: 80.7718 }, 8, 3, false)
+    tween({ lat: 7.8731, lng: 80.7718 }, 7.7, 3, false)
     map.fitBounds(slbounds);
 
     // iterate over stud 
