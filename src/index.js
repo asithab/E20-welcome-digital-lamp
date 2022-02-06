@@ -127,8 +127,8 @@ function initMap() {
     // iterate over stud 
     for (var i = 0; i < stud.length; i++) {
       // var name = stud[i].Name;
-      var lat = stud[i].coordinates[1];
-      var lon = stud[i].coordinates[2];
+      var lat = stud[i].geometry.coordinates[1];
+      var lon = stud[i].geometry.coordinates[2];
       setTimeout(placeMarker, i * 500, new google.maps.LatLng(lat, lon), map)
 
     }
