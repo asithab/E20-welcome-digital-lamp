@@ -82,14 +82,14 @@ function initMap() {
   $("#dh").on('click', function () {
     $(this).prop('disabled', true);
     // map.fitBounds(perabounds);
-    placeMarker(new google.maps.LatLng(7.2643327275129, 80.59680694773525), map);
-    placeMarker(new google.maps.LatLng(7.26388573308274, 80.59561604697777), map);
-    placeMarker(new google.maps.LatLng(7.262480890551459, 80.59553021629253), map);
-    placeMarker(new google.maps.LatLng(7.262097750917425, 80.59676403239264), map);
-    placeMarker(new google.maps.LatLng(7.261139900403967, 80.5976652545875), map);
-    placeMarker(new google.maps.LatLng(7.260980258453375, 80.59475774012553), map);
-    placeMarker(new google.maps.LatLng(7.260778045234578, 80.59688204958482), map);
-    placeMarker(new google.maps.LatLng(7.260437475397385, 80.59650654033697), map);
+    placeMarker(new google.maps.LatLng(7.254198843667386, 80.59112119182112), map);
+    placeMarker(new google.maps.LatLng(7.2541154852471195, 80.59132286626506), map);
+    placeMarker(new google.maps.LatLng(7.253765379713443, 80.59281861839096), map);
+    placeMarker(new google.maps.LatLng(7.255065770322962, 80.59146571899618), map);
+    placeMarker(new google.maps.LatLng(7.255149128567229, 80.5922304012628), map);
+    placeMarker(new google.maps.LatLng(7.253115182999913, 80.5915497500145), map);
+    placeMarker(new google.maps.LatLng(7.253773715562658, 80.59139009107972), map);
+    placeMarker(new google.maps.LatLng(7.255149128567229, 80.59225561056829), map);
   })
 
   $("#ar").on('click', function () {
