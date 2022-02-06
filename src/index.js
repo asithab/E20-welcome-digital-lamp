@@ -32,7 +32,7 @@ const mapOptions = {
   ...cameraOptions,
   disableDefaultUI: true,
   draggable: false,
-  mapId: "e73be1757f1fdda8",
+  mapId: "b90210099f2eead9",
   isFractionalZoomEnabled: true,
 };
 
