@@ -114,25 +114,9 @@ function initMap() {
   })
 
 
-  $("#india").on("click", function () {
-    $(this).prop('disabled', true);
-    // map.setZoom(5);
-    // placeMarkerAndPanTo(new google.maps.LatLng("28.6527881", "77.2113932"), map);
-    tween({ lat: 28.6527881, lng: 77.2113932 }, 5, 6, true, Easing.Back.Out)
+  
 
-  })
-
-  $("#nepal").on("click", function () {
-    $(this).prop('disabled', true);
-    // map.setZoom(5);
-    // placeMarkerAndPanTo(new google.maps.LatLng("27.649505", "85.405770"), map);
-    // map.moveCamera({
-    //   center: new google.maps.LatLng("27.649505", "85.405770"),
-    //   zoom: 5
-    // });
-    // placeMarkerAndPanTo(new google.maps.LatLng("27.649505", "85.405770"), map);
-    tween({ lat: 27.649505, lng: 85.405770 }, 5, 3)
-  })
+  
 
   $("#student").on("click", function () {
     $(this).prop('disabled', true);
